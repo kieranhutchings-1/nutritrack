@@ -35,7 +35,7 @@
   --radius:16px;
   --radius-sm:10px;
   --radius-xs:6px;
-  --nav-h:72px;
+  --nav-h:56px;
 }
 
 /* ── RESET ── */
@@ -49,7 +49,8 @@ body{
   min-height:100vh;
   max-width:430px;
   margin:0 auto;
-  padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom) + 16px);
+  position:relative;
+  padding-bottom:calc(var(--nav-h) + max(env(safe-area-inset-bottom),8px) + 24px);
   font-size:15px;
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
@@ -57,26 +58,27 @@ body{
 
 /* ── NAV ── */
 .nav{
-  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
-  width:100%;max-width:430px;
-  background:rgba(19,25,41,0.92);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
+  position:fixed;bottom:0;left:0;right:0;
+  width:100%;
+  background:rgba(13,19,34,0.96);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
   border-top:0.5px solid var(--border2);
   display:flex;z-index:100;
-  padding-bottom:env(safe-area-inset-bottom);
-  min-height:var(--nav-h);
+  padding-bottom:max(env(safe-area-inset-bottom),8px);
+  min-height:calc(var(--nav-h) + max(env(safe-area-inset-bottom),8px));
 }
 .nav-btn{
   flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:12px 2px 10px;
+  padding:14px 4px 12px;
   background:none;border:none;cursor:pointer;
   color:var(--text3);font-size:10px;font-weight:500;
   gap:6px;transition:color 0.2s;
   letter-spacing:0.02em;
+  -webkit-tap-highlight-color:transparent;
 }
 .nav-btn.active{color:var(--accent)}
-.nav-btn svg{width:26px;height:26px;stroke-width:1.6}
+.nav-btn svg{width:26px;height:26px;stroke-width:1.6;flex-shrink:0}
 .nav-btn.active svg{stroke-width:2}
 
 /* ── HEADER ── */
@@ -393,13 +395,15 @@ select.inp{cursor:pointer}
 .btn-add-sm:active{background:var(--accent-glow);color:var(--accent)}
 
 ::-webkit-scrollbar{width:0}
+.meds-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-left:8px;vertical-align:middle;opacity:0}
+.meds-dot.active{opacity:1}
 </style>
 </head>
 <body>
 <div class="header">
   <div style="display:flex;align-items:center;justify-content:space-between">
-    <div><h1>NutriTrack</h1><div class="hdate" id="header-date"></div></div>
-    <div id="mj-header" style="display:none;background:var(--surface2);border:0.5px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:500;color:var(--text2)">Medication logged</div>
+    <div><h1>NutriTrack</h1><div class="hdate" id="header-date"><span class="meds-dot" id="meds-dot" title="Medication logged today"></span></div></div>
+
   </div>
 </div>
 <div class="date-nav" id="date-nav">
@@ -410,12 +414,7 @@ select.inp{cursor:pointer}
 
 <!-- DIARY -->
 <div class="page active" id="page-diary">
-  <div class="mj-badge" style="margin-top:12px">
-    <div style="font-size:16px;color:var(--text3)">●</div>
-    <div class="mj-text"><div class="mj-title">Medication</div><div class="mj-sub" id="mj-label">Log today's injection</div></div>
-    <button class="toggle-btn" id="mj-toggle" onclick="toggleMounjaro()"></button>
-  </div>
-  <div class="macros-card">
+  <div class="macros-card" style="margin-top:12px">
     <div class="ring-wrap">
       <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="10"/><circle cx="50" cy="50" r="42" fill="none" stroke="#38bdf8" stroke-width="10" stroke-linecap="round" stroke-dasharray="263.9" id="ring-arc" stroke-dashoffset="263.9"/></svg>
       <div class="ring-center"><div class="ring-cal" id="ring-num">0</div><div class="ring-lbl">of <span id="ring-goal">1800</span></div></div>
@@ -1089,12 +1088,9 @@ function render(){
   document.getElementById('date-label').textContent=isTod?'Today':isYest?'Yesterday':curDate.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short'});
   document.getElementById('header-date').textContent=curDate.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
   document.getElementById('next-btn').style.opacity=isTod?'0.3':'1';
-  // Mounjaro
-  const mjT=document.getElementById('mj-toggle');
-  const mjL=document.getElementById('mj-label');
-  const mjH=document.getElementById('mj-header');
-  if(day.mounjaro){mjT.classList.add('on');mjL.textContent=day.mounjaro.dose+' logged'+(day.mounjaro.notes?' · '+day.mounjaro.notes:'');mjH.style.display='block';}
-  else{mjT.classList.remove('on');mjL.textContent="Log today's injection";mjH.style.display='none';}
+  // Mounjaro indicator — subtle dot in header only
+  const dot=document.getElementById('meds-dot');
+  if(dot)dot.classList.toggle('active',!!day.mounjaro);
   // Totals
   const totBurned=(day.activities||[]).reduce((a,x)=>a+x.cal,0);
   const effCal=s.eb?s.cal+totBurned:s.cal;
