@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0f172a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -13,9 +13,9 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;max-width:480px;margin:0 auto;padding-bottom:80px;font-size:15px;line-height:1.5}
 .nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--surface);border-top:0.5px solid var(--border2);display:flex;z-index:100;padding-bottom:env(safe-area-inset-bottom)}
-.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;padding:10px 0 8px;background:none;border:none;cursor:pointer;color:var(--text3);font-size:10px;gap:4px;transition:color 0.15s}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;padding:13px 0 10px;background:none;border:none;cursor:pointer;color:var(--text3);font-size:10px;gap:5px;transition:color 0.15s}
 .nav-btn.active{color:var(--accent)}
-.nav-btn svg{width:22px;height:22px}
+.nav-btn svg{width:24px;height:24px}
 .header{padding:56px 20px 16px;position:sticky;top:0;background:var(--bg);z-index:50;border-bottom:0.5px solid var(--border)}
 .header h1{font-size:22px;font-weight:700}
 .header .hdate{font-size:13px;color:var(--text2);margin-top:2px}
@@ -42,9 +42,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .goal-label{color:var(--text2)}
 .goal-prog{width:100%;height:8px;background:var(--surface2);border-radius:4px;overflow:hidden}
 .goal-fill{height:100%;border-radius:4px;transition:width 0.4s}
-.mj-badge{background:linear-gradient(135deg,rgba(167,139,250,.2),rgba(244,114,182,.2));border:0.5px solid rgba(167,139,250,.4);border-radius:var(--radius);padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.mj-badge{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius);padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .mj-badge .mj-text{flex:1}
-.mj-badge .mj-title{font-size:13px;font-weight:600;color:var(--purple)}
+.mj-badge .mj-title{font-size:13px;font-weight:500;color:var(--text2)}
 .mj-badge .mj-sub{font-size:12px;color:var(--text2)}
 .toggle-btn{width:44px;height:26px;background:var(--surface2);border-radius:13px;position:relative;cursor:pointer;border:none;transition:background .2s;flex-shrink:0}
 .toggle-btn.on{background:var(--purple)}
@@ -136,6 +136,10 @@ select.inp{cursor:pointer}
 .ir-row:last-child{border-bottom:none}
 .btn-add-sm{background:var(--surface2);color:var(--text2);border:none;border-radius:var(--radius-sm);padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;width:100%;text-align:center;margin-top:2px}
 ::-webkit-scrollbar{width:0}
+.meds-range-btn{background:var(--surface2);border:none;color:var(--text2);font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer}
+.meds-range-btn.active{background:var(--accent2);color:#fff}
+.meds-inj-item{background:var(--surface);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.dose-pill{padding:3px 10px;border-radius:10px;font-size:12px;font-weight:700;color:#fff}
 .ai-action-btn{background:var(--surface);border:0.5px solid var(--border2);border-radius:var(--radius);padding:16px 12px;cursor:pointer;text-align:center;color:var(--text);transition:border-color .15s}
 .ai-action-btn:hover{border-color:var(--accent)}
 .ai-spinner{width:36px;height:36px;border:3px solid var(--surface2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto}
@@ -148,13 +152,43 @@ select.inp{cursor:pointer}
 .ai-output-section li{font-size:14px;color:var(--text);line-height:1.8;margin-bottom:4px}
 .ai-bullet{display:flex;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--border)}
 .ai-bullet:last-child{border-bottom:none}
+
+/* INTELLIGENCE PAGE */
+.intel-section{margin-bottom:20px}
+.intel-card{background:var(--surface);border-radius:var(--radius);padding:16px;margin-bottom:10px}
+.intel-card-title{font-size:13px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+.corr-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:.5px solid var(--border)}
+.corr-row:last-child{border-bottom:none}
+.corr-label{font-size:13px;flex:1;line-height:1.4}
+.corr-bar-wrap{width:80px;height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;flex-shrink:0}
+.corr-bar{height:6px;border-radius:3px}
+.corr-val{font-size:12px;font-weight:700;width:36px;text-align:right;flex-shrink:0}
+.pred-slider-wrap{padding:4px 0}
+.pred-slider{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;background:var(--surface2);outline:none;cursor:pointer}
+.pred-slider::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent2);cursor:pointer}
+.proj-result{text-align:center;padding:16px 0}
+.proj-date{font-size:22px;font-weight:700;color:var(--green)}
+.proj-sub{font-size:13px;color:var(--text2);margin-top:4px}
+.streak-pill{background:rgba(251,191,36,.15);border:0.5px solid rgba(251,191,36,.3);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--amber);display:inline-flex;align-items:center;gap:5px}
+.tdee-highlight{font-size:32px;font-weight:700;color:var(--accent);text-align:center;padding:12px 0}
+.appetite-zone{padding:8px 12px;border-radius:var(--radius-sm);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.recall-item{background:var(--surface2);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:6px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.recall-item:active{background:var(--surface)}
+/* REPORT */
+.report-card{background:var(--surface);border-radius:var(--radius);padding:20px;margin-bottom:12px}
+.report-metric{text-align:center;padding:10px}
+.report-metric .val{font-size:24px;font-weight:700}
+.report-metric .lbl{font-size:11px;color:var(--text2);margin-top:3px}
+/* BMI pill */
+.bmi-band{display:flex;height:8px;border-radius:4px;overflow:hidden;margin:8px 0}
+.bmi-marker{position:relative;height:18px;margin-top:-5px;width:2px;background:var(--text);border-radius:1px}
 </style>
 </head>
 <body>
 <div class="header">
   <div style="display:flex;align-items:center;justify-content:space-between">
     <div><h1>NutriTrack</h1><div class="hdate" id="header-date"></div></div>
-    <div id="mj-header" style="display:none;background:rgba(167,139,250,.2);border:0.5px solid rgba(167,139,250,.4);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:600;color:var(--purple)">💉 Mounjaro day</div>
+    <div id="mj-header" style="display:none;background:var(--surface2);border:0.5px solid var(--border);border-radius:20px;padding:4px 10px;font-size:12px;font-weight:500;color:var(--text2)">Medication logged</div>
   </div>
 </div>
 <div class="date-nav" id="date-nav">
@@ -166,8 +200,8 @@ select.inp{cursor:pointer}
 <!-- DIARY -->
 <div class="page active" id="page-diary">
   <div class="mj-badge" style="margin-top:12px">
-    <div style="font-size:24px">💉</div>
-    <div class="mj-text"><div class="mj-title">Mounjaro today?</div><div class="mj-sub" id="mj-label">Tap to log your injection</div></div>
+    <div style="font-size:16px;color:var(--text3)">●</div>
+    <div class="mj-text"><div class="mj-title">Medication</div><div class="mj-sub" id="mj-label">Log today's injection</div></div>
     <button class="toggle-btn" id="mj-toggle" onclick="toggleMounjaro()"></button>
   </div>
   <div class="macros-card">
@@ -235,7 +269,7 @@ select.inp{cursor:pointer}
     <div id="a-insights"></div>
     <div class="chart-wrap"><div class="chart-title">Calories — last 14 days <span style="font-size:11px;color:var(--text3)">(purple = Mounjaro day)</span></div><canvas id="cal-chart" height="120"></canvas></div>
     <div class="chart-wrap"><div class="chart-title">Activity calories burned — last 14 days</div><canvas id="act-chart" height="100"></canvas></div>
-    <div class="chart-wrap"><div class="chart-title">Mounjaro injection log</div><div id="mj-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px"></div></div>
+
   </div>
 </div>
 
@@ -298,26 +332,136 @@ select.inp{cursor:pointer}
         <div class="s-row"><div style="font-size:20px">🥩</div><div class="s-row-text"><div class="s-row-label">Protein target</div></div><input class="s-inp" type="number" id="s-prot" value="140" onchange="saveSettings()"> <span style="color:var(--text2);font-size:13px">g</span></div>
         <div class="s-row"><div style="font-size:20px">⚖️</div><div class="s-row-text"><div class="s-row-label">Target weight</div></div><input class="s-inp" type="number" id="s-tgt" value="85" onchange="saveSettings()"> <span style="color:var(--text2);font-size:13px">kg</span></div>
         <div class="s-row"><div style="font-size:20px">🏋️</div><div class="s-row-text"><div class="s-row-label">Your weight (for burn calc)</div></div><input class="s-inp" type="number" id="s-wt" value="90" onchange="saveSettings()"> <span style="color:var(--text2);font-size:13px">kg</span></div>
+        <div class="s-row"><div style="font-size:20px">📏</div><div class="s-row-text"><div class="s-row-label">Your height</div></div><input class="s-inp" type="number" id="s-height" value="178" onchange="saveSettings()"> <span style="color:var(--text2);font-size:13px">cm</span></div>
+        <div class="s-row"><div style="font-size:20px">🧑</div><div class="s-row-text"><div class="s-row-label">Sex (for body fat est.)</div></div><select class="s-inp" id="s-sex" onchange="saveSettings()" style="width:80px;background:none"><option value="m">Male</option><option value="f">Female</option></select></div>
         <div class="s-row"><div style="font-size:20px">🏃</div><div class="s-row-text"><div class="s-row-label">Eat back burned calories</div><div class="s-row-sub">Adds activity burn to daily budget</div></div><input type="checkbox" id="s-eb" onchange="saveSettings()" style="width:20px;height:20px;accent-color:var(--accent);cursor:pointer"></div>
       </div>
     </div>
+
     <div class="s-sec">
-      <div class="s-title">Mounjaro</div>
+      <div class="s-title">Backup and restore</div>
       <div class="s-card">
-        <div class="s-row"><div style="font-size:20px">💉</div><div class="s-row-text"><div class="s-row-label">Default dose</div></div><input class="s-inp" type="text" id="s-dose" value="5mg" onchange="saveSettings()" style="width:60px"></div>
-        <div class="s-row"><div style="font-size:20px">📅</div><div class="s-row-text"><div class="s-row-label">Injection day</div></div>
-        <select class="s-inp" id="s-injday" onchange="saveSettings()" style="width:100px;background:none">
-          <option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option><option value="3" selected>Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option>
-        </select></div>
-      </div>
-    </div>
-    <div class="s-sec">
-      <div class="s-title">Data</div>
-      <div class="s-card">
-        <div class="s-row" onclick="exportData()" style="cursor:pointer"><div style="font-size:20px">📤</div><div class="s-row-text"><div class="s-row-label">Export all data</div><div class="s-row-sub">Downloads JSON backup</div></div></div>
+        <div class="s-row" onclick="exportData()" style="cursor:pointer"><div style="font-size:20px">📤</div><div class="s-row-text"><div class="s-row-label">Export backup</div><div class="s-row-sub">Save JSON to Files or iCloud</div></div></div>
+        <div class="s-row" style="cursor:pointer;position:relative"><div style="font-size:20px">📥</div><div class="s-row-text"><div class="s-row-label">Import backup</div><div class="s-row-sub">Restore from saved JSON file</div></div><input type="file" accept=".json" onchange="importBackup(event)" style="position:absolute;inset:0;opacity:0;cursor:pointer"></div>
         <div class="s-row" onclick="clearData()" style="cursor:pointer"><div style="font-size:20px">🗑️</div><div class="s-row-text"><div class="s-row-label" style="color:var(--red)">Clear all data</div><div class="s-row-sub">Cannot be undone</div></div></div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- INTELLIGENCE PAGE -->
+<div class="page" id="page-intel">
+  <div style="margin-top:12px">
+
+    <!-- Streak -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div>
+        <div style="font-size:20px;font-weight:700" id="intel-streak-num">—</div>
+        <div style="font-size:12px;color:var(--text2)">day logging streak</div>
+      </div>
+      <div id="intel-streak-pill"></div>
+      <div style="text-align:right">
+        <div style="font-size:20px;font-weight:700;color:var(--green)" id="intel-compliance">—%</div>
+        <div style="font-size:12px;color:var(--text2)">injection compliance</div>
+      </div>
+    </div>
+
+    <!-- BMI + body fat -->
+    <div class="intel-card">
+      <div class="intel-card-title">Body metrics</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;margin-bottom:14px">
+        <div><div style="font-size:22px;font-weight:700;color:var(--accent)" id="intel-bmi">—</div><div style="font-size:11px;color:var(--text2)">BMI</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--purple)" id="intel-bf">—%</div><div style="font-size:11px;color:var(--text2)">Est. body fat</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--green)" id="intel-lbm">—kg</div><div style="font-size:11px;color:var(--text2)">Lean mass</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:6px">BMI scale</div>
+      <div class="bmi-band">
+        <div style="flex:3;background:#38bdf8;opacity:.6"></div>
+        <div style="flex:6.5;background:#4ade80;opacity:.7"></div>
+        <div style="flex:5;background:#fbbf24;opacity:.7"></div>
+        <div style="flex:5;background:#f87171;opacity:.7"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text3);margin-bottom:4px">
+        <span>Under 18.5</span><span>18.5</span><span>25</span><span>30</span><span>35+</span>
+      </div>
+      <div style="font-size:11px;color:var(--text3);text-align:center;margin-top:6px" id="intel-bmi-label"></div>
+    </div>
+
+    <!-- Real TDEE -->
+    <div class="intel-card">
+      <div class="intel-card-title">Your actual metabolism</div>
+      <div class="tdee-highlight" id="intel-tdee">—</div>
+      <div style="font-size:12px;color:var(--text2);text-align:center;margin-bottom:10px">estimated daily maintenance calories (TDEE)</div>
+      <div style="font-size:12px;color:var(--text3);line-height:1.7" id="intel-tdee-sub">Calculated from your actual calories logged vs real weight change — more accurate than any formula. Needs at least 2 weight readings and 7 logged days.</div>
+      <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:8px;text-align:center">
+        <div style="background:var(--surface2);border-radius:var(--radius-sm);padding:10px">
+          <div style="font-size:16px;font-weight:700;color:var(--amber)" id="intel-deficit">—</div>
+          <div style="font-size:11px;color:var(--text2);margin-top:2px">avg daily deficit</div>
+        </div>
+        <div style="background:var(--surface2);border-radius:var(--radius-sm);padding:10px">
+          <div style="font-size:16px;font-weight:700;color:var(--green)" id="intel-weekly-loss">—</div>
+          <div style="font-size:11px;color:var(--text2);margin-top:2px">projected weekly loss</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Predictive weight model -->
+    <div class="intel-card">
+      <div class="intel-card-title">Weight projection</div>
+      <div style="margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px">
+          <span style="color:var(--text2)">Daily calories</span>
+          <span style="font-weight:600" id="proj-cal-val">1800 kcal</span>
+        </div>
+        <div class="pred-slider-wrap">
+          <input type="range" class="pred-slider" id="proj-cal-slider" min="1000" max="2500" step="50" value="1800" oninput="updateProjection()">
+        </div>
+      </div>
+      <canvas id="proj-chart" height="130"></canvas>
+      <div class="proj-result">
+        <div style="font-size:13px;color:var(--text2);margin-bottom:4px">To reach <span id="proj-target-wt">—kg</span></div>
+        <div class="proj-date" id="proj-date">—</div>
+        <div class="proj-sub" id="proj-sub"></div>
+      </div>
+    </div>
+
+    <!-- Correlation engine -->
+    <div class="intel-card">
+      <div class="intel-card-title">What's actually driving your results</div>
+      <div id="intel-correlations">
+        <div style="font-size:13px;color:var(--text2);padding:8px 0">Calculating correlations — needs 7+ days of data...</div>
+      </div>
+    </div>
+
+    <!-- Mounjaro appetite window -->
+    <div class="intel-card">
+      <div class="intel-card-title">Mounjaro appetite window</div>
+      <div style="font-size:12px;color:var(--text2);margin-bottom:10px">Average calorie intake by day relative to injection (day 0 = injection day)</div>
+      <canvas id="appetite-chart" height="110"></canvas>
+      <div style="font-size:12px;color:var(--text3);margin-top:8px;line-height:1.6" id="appetite-insight"></div>
+    </div>
+
+    <!-- Smart food recall -->
+    <div class="intel-card">
+      <div class="intel-card-title">Your frequent foods</div>
+      <div id="intel-recall"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WEEKLY REPORT PAGE -->
+<div class="page" id="page-report">
+  <div style="margin-top:12px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div>
+        <div style="font-size:18px;font-weight:700">Weekly report</div>
+        <div style="font-size:12px;color:var(--text2)" id="report-week-label"></div>
+      </div>
+      <button class="btn-p" style="flex:none;padding:6px 14px;font-size:13px;border-radius:20px" onclick="shareReport()">Share</button>
+    </div>
+    <div id="report-content"></div>
   </div>
 </div>
 
@@ -398,6 +542,66 @@ select.inp{cursor:pointer}
     </div>
   </div>
 </div>
+
+<!-- MEDS PAGE -->
+<div class="page" id="page-meds">
+  <div style="margin-top:12px">
+
+    <!-- Stats row -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px" id="meds-stats"></div>
+
+    <!-- PK Level chart -->
+    <div class="chart-wrap">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+        <div class="chart-title" style="margin-bottom:0">Estimated medication level</div>
+        <div style="display:flex;gap:6px">
+          <button class="meds-range-btn active" onclick="setMedsRange(30,this)">30d</button>
+          <button class="meds-range-btn" onclick="setMedsRange(90,this)">90d</button>
+          <button class="meds-range-btn" onclick="setMedsRange(0,this)">All</button>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:10px">Tirzepatide half-life ~5 days · cumulative stacking shown</div>
+      <canvas id="meds-pk-chart" height="160"></canvas>
+    </div>
+
+    <!-- Current level card -->
+    <div style="background:var(--surface);border-radius:var(--radius);padding:16px;margin-bottom:16px;display:flex;align-items:center;gap:16px" id="meds-current-card">
+      <div style="flex:1">
+        <div style="font-size:12px;color:var(--text2);margin-bottom:4px">Estimated level now</div>
+        <div style="font-size:28px;font-weight:700" id="meds-current-level">—</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:2px" id="meds-next-inj"></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:12px;color:var(--text2);margin-bottom:4px">Current dose</div>
+        <div style="font-size:20px;font-weight:700;color:var(--purple)" id="meds-current-dose">—</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:2px" id="meds-days-since"></div>
+      </div>
+    </div>
+
+    <!-- Injection history -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+      <div class="chart-title" style="margin-bottom:0">Injection history</div>
+      <button class="btn-p" style="flex:none;padding:6px 14px;font-size:13px;border-radius:20px" onclick="openMjModal()">+ Log injection</button>
+    </div>
+    <div id="meds-history-list"></div>
+
+    <!-- Dose settings inline -->
+    <div style="background:var(--surface);border-radius:var(--radius);padding:14px 16px;margin-top:8px">
+      <div style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--text2)">Settings</div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+        <div style="flex:1;font-size:14px">Default dose</div>
+        <input class="s-inp" type="text" id="meds-dose-inp" value="5mg" onchange="saveMedSettings()" style="width:60px;text-align:right">
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="flex:1;font-size:14px">Injection day</div>
+        <select class="s-inp" id="meds-injday-inp" onchange="saveMedSettings()" style="width:110px;background:none;text-align:right">
+          <option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option><option value="3" selected>Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+</div>
 <nav class="nav">
   <button class="nav-btn active" onclick="go('diary',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>Diary
@@ -405,14 +609,17 @@ select.inp{cursor:pointer}
   <button class="nav-btn" onclick="go('weight',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>Weight
   </button>
-  <button class="nav-btn" onclick="go('analysis',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-6"/></svg>Analysis
+  <button class="nav-btn" onclick="go('meds',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>Meds
   </button>
-  <button class="nav-btn" onclick="go('import',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Import
+  <button class="nav-btn" onclick="go('intel',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>Insights
+  </button>
+  <button class="nav-btn" onclick="go('report',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 17H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v3"/><path d="M13 21l2-2 4 4"/><path d="M19 15l-6 6"/><path d="M9 9h6M9 13h4"/></svg>Report
   </button>
   <button class="nav-btn" onclick="go('ai',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z"/><circle cx="18" cy="9" r="3" fill="currentColor" opacity=".4"/><path d="M18 7v4M16 9h4" stroke-width="1.5"/></svg>AI Coach
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><circle cx="19" cy="8" r="2.5" fill="currentColor" opacity=".5"/><path d="M19 6.5v3M17.5 8h3" stroke-width="1.4"/></svg>AI
   </button>
   <button class="nav-btn" onclick="go('settings',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings
@@ -524,10 +731,10 @@ const ALBL={run:'Running',walk:'Walking',cycle:'Cycling',swim:'Swimming',hiit:'H
 function dk(d){return d.toISOString().split('T')[0]}
 function ld(){try{return JSON.parse(localStorage.getItem('nt3')||'{}')}catch{return{}}}
 function sd(d){localStorage.setItem('nt3',JSON.stringify(d))}
-function gs(){const df={cal:1800,prot:140,tgt:85,wt:90,dose:'5mg',injDay:3,eb:false};try{return Object.assign(df,JSON.parse(localStorage.getItem('nt3s')||'{}'))}catch{return df}}
-function saveSettings(){const s={cal:+document.getElementById('s-cal').value||1800,prot:+document.getElementById('s-prot').value||140,tgt:+document.getElementById('s-tgt').value||85,wt:+document.getElementById('s-wt').value||90,dose:document.getElementById('s-dose').value||'5mg',injDay:+document.getElementById('s-injday').value,eb:document.getElementById('s-eb').checked};localStorage.setItem('nt3s',JSON.stringify(s));render()}
+function gs(){const df={cal:1800,prot:140,tgt:85,wt:90,height:178,sex:'m',dose:'5mg',injDay:3,eb:false};try{return Object.assign(df,JSON.parse(localStorage.getItem('nt3s')||'{}'))}catch{return df}}
+function saveSettings(){const s={cal:+document.getElementById('s-cal').value||1800,prot:+document.getElementById('s-prot').value||140,tgt:+document.getElementById('s-tgt').value||85,wt:+document.getElementById('s-wt').value||90,height:+document.getElementById('s-height').value||178,sex:document.getElementById('s-sex').value||'m',dose:document.getElementById('s-dose').value||'5mg',injDay:+document.getElementById('s-injday').value,eb:document.getElementById('s-eb').checked};localStorage.setItem('nt3s',JSON.stringify(s));render()}
 
-function go(p,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');btn.classList.add('active');document.getElementById('date-nav').style.display=p==='diary'?'flex':'none';if(p==='analysis')rAnalysis();if(p==='weight')rWeight();if(p==='settings')lSettings();if(p==='ai')initAiPage()}
+function go(p,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');btn.classList.add('active');document.getElementById('date-nav').style.display=p==='diary'?'flex':'none';if(p==='analysis')rAnalysis();if(p==='weight')rWeight();if(p==='settings')lSettings();if(p==='ai')initAiPage();if(p==='meds')rMeds();if(p==='intel')rIntel();if(p==='report')rReport()}
 function changeDate(d){const x=new Date(curDate);x.setDate(x.getDate()+d);if(x>new Date())return;curDate=x;render()}
 function closeM(id){document.getElementById(id).classList.remove('open')}
 document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open')}));
@@ -566,24 +773,37 @@ function openAddFood(m){curMeal=m;selFood=null;document.getElementById('food-q')
 function debSearch(v){clearTimeout(sTimer);if(v.length<2){document.getElementById('s-results').style.display='none';return}document.getElementById('s-results').innerHTML='<div class="s-loading">Searching Open Food Facts...</div>';document.getElementById('s-results').style.display='block';sTimer=setTimeout(()=>doSearch(v),500)}
 async function doSearch(q){
   const el=document.getElementById('s-results');
-  // Try multiple endpoints in order until one works
-  const endpoints=[
-    ()=>fetch(`https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(q)}&search_simple=1&action=process&json=1&page_size=10&fields=product_name,brands,nutriments`,{mode:'cors'}),
-    ()=>fetch(`https://corsproxy.io/?${encodeURIComponent('https://world.openfoodfacts.org/cgi/search.pl?search_terms='+q+'&search_simple=1&action=process&json=1&page_size=10&fields=product_name,brands,nutriments')}`),
-    ()=>fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://world.openfoodfacts.org/cgi/search.pl?search_terms='+encodeURIComponent(q)+'&search_simple=1&action=process&json=1&page_size=10&fields=product_name,brands,nutriments')}`)
-  ];
-  let data=null;
-  for(const ep of endpoints){
+  el.innerHTML='<div class="s-loading">Searching...</div>';
+  el.style.display='block';
+  // Strategy: try UK OFF first, then global OFF via proxy, then USDA as fallback
+  let items=[];
+  // Try 1: UK Open Food Facts
+  try{
+    const r=await fetch(`https://uk.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(q)}&search_simple=1&action=process&json=1&page_size=8&fields=product_name,brands,nutriments`,{mode:'cors'});
+    if(r.ok){const d=await r.json();items=(d.products||[]).filter(p=>p.product_name&&p.nutriments&&p.nutriments['energy-kcal_100g']!=null);}
+  }catch(e){}
+  // Try 2: Global OFF via proxy if UK returned nothing
+  if(!items.length){
     try{
-      const r=await ep();if(!r.ok)continue;
-      const raw=await r.json();
-      // allorigins wraps in {contents:'...'}
-      data=raw.contents?JSON.parse(raw.contents):raw;
-      if(data&&data.products)break;
-    }catch(e){continue}
+      const r=await fetch(`https://corsproxy.io/?${encodeURIComponent('https://world.openfoodfacts.org/cgi/search.pl?search_terms='+encodeURIComponent(q)+'&search_simple=1&action=process&json=1&page_size=8&fields=product_name,brands,nutriments')}`);
+      if(r.ok){const d=await r.json();const parsed=d.contents?JSON.parse(d.contents):d;items=(parsed.products||[]).filter(p=>p.product_name&&p.nutriments&&p.nutriments['energy-kcal_100g']!=null);}
+    }catch(e){}
   }
-  if(!data||!data.products){el.innerHTML='<div class="s-loading">Search unavailable — use manual entry below.</div>';return}
-  const items=(data.products||[]).filter(p=>p.product_name&&p.nutriments&&p.nutriments['energy-kcal_100g']!=null);
+  // Try 3: USDA FoodData Central as fallback (great for generic foods)
+  if(!items.length){
+    try{
+      const r=await fetch(`https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(q)}&pageSize=8&api_key=DEMO_KEY`);
+      if(r.ok){
+        const d=await r.json();
+        items=(d.foods||[]).filter(f=>f.foodNutrients).map(f=>{
+          const get=(id)=>(f.foodNutrients.find(n=>n.nutrientId===id)||{}).value||0;
+          // USDA nutrient IDs: energy=1008, protein=1003, carbs=1005, fat=1004
+          const cal=get(1008);const prot=get(1003);const carb=get(1005);const fat=get(1004);
+          return{product_name:f.description,brands:f.brandOwner||f.brandName||'',nutriments:{'energy-kcal_100g':cal,'proteins_100g':prot,'carbohydrates_100g':carb,'fat_100g':fat}};
+        }).filter(p=>p.nutriments['energy-kcal_100g']>0);
+      }
+    }catch(e){}
+  }
   if(!items.length){el.innerHTML='<div class="s-loading">No results found — try manual entry.</div>';return}
   el.innerHTML=items.map((p,i)=>`<div class="s-item" onclick="selSF(${i})"><div class="s-item-name">${p.product_name}</div><div class="s-item-meta">${Math.round(p.nutriments['energy-kcal_100g'])} kcal/100g${p.brands?' · '+p.brands.split(',')[0]:''}</div></div>`).join('');
   window._sr=items
@@ -617,9 +837,10 @@ function rAnalysis(){const data=ld();const s=gs();const days=[];for(let i=13;i>=
   const ctx3=document.getElementById('act-chart').getContext('2d');if(aChart)aChart.destroy();aChart=new Chart(ctx3,{type:'bar',data:{labels:days.map(d=>d.date.toLocaleDateString('en-GB',{day:'numeric',month:'short'})),datasets:[{label:'Burned',data:days.map(d=>Math.round(d.burned)),backgroundColor:'rgba(248,113,113,.6)',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#64748b',font:{size:10},maxTicksLimit:7}},y:{grid:{color:'rgba(255,255,255,.05)'},ticks:{color:'#64748b',font:{size:11}}}}}});
   document.getElementById('mj-grid').innerHTML=days.map(d=>`<div style="text-align:center"><div style="width:100%;aspect-ratio:1;border-radius:6px;background:${d.mj?'rgba(167,139,250,.5)':'var(--surface2)'};display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:4px">${d.mj?'💉':''}</div><div style="font-size:10px;color:var(--text3)">${d.date.toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</div></div>`).join('')}
 
-function lSettings(){const s=gs();document.getElementById('s-cal').value=s.cal;document.getElementById('s-prot').value=s.prot;document.getElementById('s-tgt').value=s.tgt;document.getElementById('s-wt').value=s.wt;document.getElementById('s-dose').value=s.dose;document.getElementById('s-injday').value=s.injDay;document.getElementById('s-eb').checked=!!s.eb}
+function lSettings(){const s=gs();document.getElementById('s-cal').value=s.cal;document.getElementById('s-prot').value=s.prot;document.getElementById('s-tgt').value=s.tgt;document.getElementById('s-wt').value=s.wt;document.getElementById('s-height').value=s.height||178;document.getElementById('s-sex').value=s.sex||'m';document.getElementById('s-dose').value=s.dose;document.getElementById('s-injday').value=s.injDay;document.getElementById('s-eb').checked=!!s.eb}
 function exportData(){const d=ld();const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='nutritrack-export.json';a.click()}
 function clearData(){if(confirm('Delete ALL data? This cannot be undone.')){localStorage.removeItem('nt3');render()}}
+function importBackup(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=function(ev){try{const d=JSON.parse(ev.target.result);if(typeof d!=='object')throw new Error('Invalid');if(confirm('This will merge with your existing data. Continue?')){const existing=ld();const merged=Object.assign({},existing,d);sd(merged);render();alert('Backup restored successfully.')};}catch(err){alert('Invalid backup file.')}};r.readAsText(f)}
 
 // ===== IMPORT =====
 function dOver(e,id){e.preventDefault();document.getElementById(id).classList.add('drag-over')}
@@ -902,7 +1123,7 @@ function buildDataSummary(){
   const avgSleep=wDays.length?Math.round(wDays.reduce((a,d)=>a+(d.sleepMin||0),0)/wDays.length):null;
 
   return {
-    settings:{calorieTarget:s.cal,proteinTarget:s.prot,weightTarget:s.tgt,currentWeight:lastW,startWeight:firstW,eatBackCalories:s.eb},
+    settings:{calorieTarget:s.cal,proteinTarget:s.prot,weightTarget:s.tgt,currentWeight:lastW,startWeight:firstW,height:s.height,sex:s.sex,eatBackCalories:s.eb},
     summary:{
       daysLogged:loggedDays.length,totalDays:30,avgDailyCalories:avgCal,avgProtein,
       totalWeightLost:firstW&&lastW?+(firstW-lastW).toFixed(1):null,
@@ -919,13 +1140,13 @@ function buildDataSummary(){
 }
 
 const PROMPTS={
-  weekly_plan:`You are a supportive health and nutrition coach. The user is on a weight loss journey using Mounjaro (tirzepatide) medication. Based on their last 30 days of data below, create a practical, specific weekly plan for the coming week. Include:
-- Daily calorie targets (accounting for Mounjaro appetite suppression on injection days)
-- Protein focus and specific meal timing suggestions
-- Activity recommendations based on their Whoop recovery scores if available
-- Mounjaro injection day strategy (when to eat what, managing side effects)
-- One or two concrete wins to aim for this week
-Keep it practical, warm and encouraging. Format with clear sections using markdown headings. Don't be generic — reference their actual numbers.`,
+  weekly_plan:`You are a supportive health and nutrition coach. The user is on a weight loss journey using Mounjaro (tirzepatide) medication. Based on their data below (which includes their actual TDEE, correlation analysis, and appetite window data), create a practical, specific weekly plan. Include:
+- Daily calorie targets using their REAL calculated TDEE not a formula estimate
+- Protein focus with specific targets for injection days vs non-injection days  
+- Activity recommendations based on Whoop recovery scores if available
+- Mounjaro appetite window strategy — their data shows which day post-injection appetite is lowest, capitalise on it
+- One or two concrete wins based specifically on their weakest areas (logging consistency, protein, deficit)
+Keep it practical, warm and encouraging. Format with clear sections. Reference their actual numbers throughout — never give generic advice.`,
 
   pattern_analysis:`You are a data-driven health coach. Analyse the user's last 30 days of health data and identify key patterns. Look for:
 - Correlation between Mounjaro injection days and calorie intake
@@ -1022,6 +1243,679 @@ function renderMarkdown(text){
     .replace(/^(\d+\.) (.+)$/gm,'<div style="display:flex;gap:8px;padding:4px 0"><span style="color:var(--accent);font-weight:600;flex-shrink:0;min-width:18px">$1</span><span>$2</span></div>')
     .replace(/\n\n/g,'<br>')
     .replace(/\n/g,' ');
+}
+
+
+// ═══════════════════════════════════════════
+// MEDS PAGE — Pharmacokinetic model
+// ═══════════════════════════════════════════
+// Tirzepatide half-life = ~5 days = 120 hours
+// After N days, fraction remaining = 0.5^(N/5)
+const MJ_HALFLIFE = 5.0;
+const DOSE_COLORS = {'2.5mg':'#94a3b8','5mg':'#38bdf8','7.5mg':'#4ade80','10mg':'#fbbf24','12.5mg':'#f97316','15mg':'#f87171'};
+
+function doseToMg(dose){return parseFloat(dose)||0}
+
+function pkLevel(injections, atDate){
+  // Sum residual from each injection at given date
+  let total = 0;
+  for(const inj of injections){
+    const daysSince = (atDate - new Date(inj.date)) / 86400000;
+    if(daysSince < 0) continue;
+    total += doseToMg(inj.dose) * Math.pow(0.5, daysSince / MJ_HALFLIFE);
+  }
+  return total;
+}
+
+function getAllInjections(){
+  const data = ld();
+  const injs = [];
+  for(const [key, day] of Object.entries(data)){
+    if(day.mounjaro && day.mounjaro.dose){
+      injs.push({date: key, dose: day.mounjaro.dose, notes: day.mounjaro.notes||''});
+    }
+  }
+  return injs.sort((a,b)=>a.date.localeCompare(b.date));
+}
+
+let pkChart = null;
+let medsRangeDays = 30;
+
+function setMedsRange(days, btn){
+  medsRangeDays = days;
+  document.querySelectorAll('.meds-range-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  rMeds();
+}
+
+function saveMedSettings(){
+  const s = gs();
+  s.dose = document.getElementById('meds-dose-inp').value || '5mg';
+  s.injDay = +document.getElementById('meds-injday-inp').value;
+  localStorage.setItem('nt3s', JSON.stringify(s));
+}
+
+function openMjModal(){
+  document.getElementById('mj-notes').value='';
+  const s=gs();
+  document.querySelectorAll('.dose-btn').forEach(b=>{b.classList.toggle('selected',b.textContent===s.dose);if(b.textContent===s.dose)selDoseVal=s.dose});
+  document.getElementById('modal-mj').classList.add('open');
+}
+
+function rMeds(){
+  const s = gs();
+  // Sync settings inputs
+  document.getElementById('meds-dose-inp').value = s.dose || '5mg';
+  document.getElementById('meds-injday-inp').value = s.injDay || 3;
+
+  const injs = getAllInjections();
+  const today = new Date(); today.setHours(12,0,0,0);
+
+  // Determine date range
+  let startDate;
+  if(medsRangeDays === 0){
+    // All time: from first injection
+    startDate = injs.length ? new Date(injs[0].date) : new Date(today.getTime() - 30*86400000);
+    startDate.setHours(12,0,0,0);
+  } else {
+    startDate = new Date(today.getTime() - medsRangeDays * 86400000);
+    startDate.setHours(12,0,0,0);
+  }
+
+  // Build day-by-day PK curve
+  const labels = [], levels = [], injDays = [];
+  const d = new Date(startDate);
+  while(d <= new Date(today.getTime() + 14*86400000)){
+    const key = dk(d);
+    const inj = injs.find(i=>i.date===key);
+    labels.push(d.toLocaleDateString('en-GB',{day:'numeric',month:'short'}));
+    levels.push(+pkLevel(injs, d).toFixed(3));
+    injDays.push(inj ? inj.dose : null);
+    d.setDate(d.getDate()+1);
+  }
+
+  // Current level
+  const currentLevel = pkLevel(injs, today);
+  document.getElementById('meds-current-level').textContent = currentLevel > 0.01 ? currentLevel.toFixed(2)+'mg' : 'Negligible';
+
+  // Last injection
+  const lastInj = injs[injs.length-1];
+  if(lastInj){
+    const daysSince = Math.floor((today - new Date(lastInj.date))/86400000);
+    document.getElementById('meds-current-dose').textContent = lastInj.dose;
+    document.getElementById('meds-days-since').textContent = daysSince === 0 ? 'Injected today' : `${daysSince} day${daysSince!==1?'s':''} since last injection`;
+    // Next injection (weekly)
+    const nextInj = new Date(lastInj.date);
+    nextInj.setDate(nextInj.getDate() + 7);
+    const daysToNext = Math.ceil((nextInj - today)/86400000);
+    document.getElementById('meds-next-inj').textContent = daysToNext <= 0 ? 'Next injection due today' : `Next injection in ${daysToNext} day${daysToNext!==1?'s':''}`;
+  } else {
+    document.getElementById('meds-current-dose').textContent = '—';
+    document.getElementById('meds-days-since').textContent = 'No injections logged yet';
+    document.getElementById('meds-next-inj').textContent = 'Log your first injection below';
+  }
+
+  // Stats
+  const totalInjs = injs.length;
+  const doses = injs.map(i=>doseToMg(i.dose));
+  const avgDose = doses.length ? (doses.reduce((a,b)=>a+b,0)/doses.length).toFixed(1) : '—';
+  const maxDose = doses.length ? Math.max(...doses) : 0;
+  document.getElementById('meds-stats').innerHTML = `
+    <div class="stat-card"><div class="stat-label">Total injections</div><div class="stat-value" style="color:var(--purple)">${totalInjs}</div><div class="stat-sub">logged</div></div>
+    <div class="stat-card"><div class="stat-label">Avg dose</div><div class="stat-value" style="color:var(--accent)">${avgDose}mg</div><div class="stat-sub">per injection</div></div>
+    <div class="stat-card"><div class="stat-label">Current dose</div><div class="stat-value" style="color:var(--green)">${lastInj?lastInj.dose:'—'}</div><div class="stat-sub">most recent</div></div>`;
+
+  // PK Chart
+  const todayIdx = labels.findIndex((_,i)=>{
+    const dd = new Date(startDate); dd.setDate(dd.getDate()+i);
+    return dk(dd) === dk(today);
+  });
+
+  const ctx = document.getElementById('meds-pk-chart').getContext('2d');
+  if(pkChart) pkChart.destroy();
+
+  // Split into past (solid) and future (dashed)
+  const pastLevels = levels.map((v,i)=>i<=todayIdx?v:null);
+  const futureLevels = levels.map((v,i)=>i>=todayIdx?v:null);
+
+  // Injection point markers
+  const injPoints = levels.map((v,i)=>injDays[i]?v:null);
+
+  pkChart = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels,
+      datasets:[
+        {
+          label:'Level (past)',
+          data: pastLevels,
+          borderColor:'rgba(56,189,248,0.9)',
+          backgroundColor:'rgba(56,189,248,0.08)',
+          borderWidth: 2.5,
+          pointRadius: 0,
+          fill: true,
+          tension: 0.4,
+          spanGaps: false
+        },
+        {
+          label:'Level (projected)',
+          data: futureLevels,
+          borderColor:'rgba(56,189,248,0.4)',
+          backgroundColor:'rgba(56,189,248,0.03)',
+          borderWidth: 2,
+          borderDash:[6,4],
+          pointRadius: 0,
+          fill: true,
+          tension: 0.4,
+          spanGaps: false
+        },
+        {
+          label:'Injection',
+          data: injPoints,
+          borderColor:'rgba(167,139,250,0)',
+          backgroundColor: injDays.map(d=>DOSE_COLORS[d]||'rgba(167,139,250,0.8)'),
+          pointRadius: injDays.map(d=>d?7:0),
+          pointHoverRadius: 10,
+          showLine: false,
+          type:'scatter'
+        }
+      ]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:true,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            title:ctx=>ctx[0].label,
+            label:ctx=>{
+              if(ctx.datasetIndex===2) return null;
+              const v=ctx.parsed.y;
+              return v>0.01?` ${v.toFixed(2)}mg estimated`:' Negligible';
+            },
+            afterBody:(ctx)=>{
+              const i=ctx[0].dataIndex;
+              if(injDays[i]) return [`💉 ${injDays[i]} injected`];
+              return [];
+            }
+          }
+        }
+      },
+      scales:{
+        x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#64748b',font:{size:10},maxTicksLimit:8}},
+        y:{
+          grid:{color:'rgba(255,255,255,.04)'},
+          ticks:{color:'#64748b',font:{size:10},callback:v=>v.toFixed(1)+'mg'},
+          min:0
+        }
+      }
+    }
+  });
+
+  // History list
+  const list = document.getElementById('meds-history-list');
+  list.innerHTML = '';
+  if(!injs.length){
+    list.innerHTML='<div class="empty"><div class="empty-icon">💊</div><div class="empty-title">No injections logged yet</div><div class="empty-sub">Tap "+ Log injection" to get started</div></div>';
+    return;
+  }
+  [...injs].reverse().slice(0,30).forEach((inj,idx)=>{
+    const d = new Date(inj.date);
+    const daysSince = Math.floor((today - d)/86400000);
+    const col = DOSE_COLORS[inj.dose]||'#a78bfa';
+    const el = document.createElement('div');
+    el.className = 'meds-inj-item';
+    el.innerHTML = `
+      <div style="width:10px;height:10px;border-radius:50%;background:${col};flex-shrink:0"></div>
+      <div style="flex:1">
+        <div style="font-size:14px;font-weight:600">${d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'})}</div>
+        ${inj.notes?`<div style="font-size:12px;color:var(--text2)">${inj.notes}</div>`:''}
+      </div>
+      <div style="text-align:right">
+        <span class="dose-pill" style="background:${col}">${inj.dose}</span>
+        <div style="font-size:11px;color:var(--text3);margin-top:4px">${daysSince===0?'today':daysSince+' days ago'}</div>
+      </div>
+      <button class="del-btn" onclick="deleteInj('${inj.date}')">✕</button>`;
+    list.appendChild(el);
+  });
+}
+
+function deleteInj(dateKey){
+  if(!confirm('Remove this injection record?')) return;
+  const data = ld();
+  if(data[dateKey]) { data[dateKey].mounjaro = null; sd(data); rMeds(); render(); }
+}
+
+
+// ═══════════════════════════════════════════
+// INTELLIGENCE ENGINE
+// ═══════════════════════════════════════════
+
+let projChart = null, appetiteChart = null;
+
+function getDaysData(n){
+  const data = ld(); const days = [];
+  const today = new Date(); today.setHours(0,0,0,0);
+  for(let i=n-1;i>=0;i--){
+    const d = new Date(today); d.setDate(d.getDate()-i);
+    const key = dk(d); const day = data[key]||{};
+    const foods = day.foods||[]; const acts = day.activities||[];
+    const whoop = day.whoop||{};
+    days.push({
+      date:d, key,
+      cal: foods.reduce((a,f)=>a+f.cal,0),
+      protein: foods.reduce((a,f)=>a+f.protein,0),
+      logged: foods.length>0,
+      burned: acts.reduce((a,x)=>a+x.cal,0),
+      weight: day.weight?.val||null,
+      mounjaro: day.mounjaro?day.mounjaro.dose:null,
+      recovery: whoop.recovery||null,
+      hrv: whoop.hrv||null,
+      sleep: whoop.sleepMin||null,
+      strain: whoop.strain||null,
+      foods: foods
+    });
+  }
+  return days;
+}
+
+function calcTDEE(days){
+  // Use actual weight change + calories to back-calculate TDEE
+  // TDEE = avg_calories + (weight_loss_per_day * 7700)
+  // 7700 kcal ≈ 1kg of fat
+  const withWeight = days.filter(d=>d.weight&&d.logged&&d.cal>500);
+  if(withWeight.length < 2) return null;
+  const firstW = withWeight[0].weight;
+  const lastW = withWeight[withWeight.length-1].weight;
+  const daySpan = (withWeight[withWeight.length-1].date - withWeight[0].date)/86400000;
+  if(daySpan < 3) return null;
+  const weightChangePerDay = (firstW - lastW) / daySpan; // kg/day lost (positive = losing)
+  const loggedDays = days.filter(d=>d.logged&&d.cal>500);
+  const avgCal = loggedDays.reduce((a,d)=>a+d.cal,0)/loggedDays.length;
+  const tdee = Math.round(avgCal + (weightChangePerDay * 7700));
+  return {tdee, avgCal:Math.round(avgCal), deficit:Math.round(tdee-avgCal), weeklyLoss:+(weightChangePerDay*7).toFixed(2)};
+}
+
+function calcStreak(days){
+  let streak = 0;
+  const rev = [...days].reverse();
+  for(const d of rev){
+    if(d.logged) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function calcBMI(weight, height){
+  if(!weight||!height) return null;
+  return +(weight/((height/100)**2)).toFixed(1);
+}
+
+function calcBodyFat(bmi, age, sex){
+  // Deurenberg formula: BF% = (1.20 × BMI) + (0.23 × age) − (10.8 × sex) − 5.4
+  // sex: 1=male, 0=female
+  if(!bmi) return null;
+  const sexVal = sex==='m'?1:0;
+  return +((1.20*bmi)+(0.23*(age||35))-(10.8*sexVal)-5.4).toFixed(1);
+}
+
+function correlate(xs, ys){
+  // Pearson correlation coefficient
+  const n = xs.length;
+  if(n<5) return null;
+  const mx = xs.reduce((a,b)=>a+b,0)/n;
+  const my = ys.reduce((a,b)=>a+b,0)/n;
+  const num = xs.reduce((a,x,i)=>a+(x-mx)*(ys[i]-my),0);
+  const den = Math.sqrt(xs.reduce((a,x)=>a+(x-mx)**2,0)*ys.reduce((a,y)=>a+(y-my)**2,0));
+  return den===0?null:+(num/den).toFixed(3);
+}
+
+function getFrequentFoods(days){
+  const counts = {};
+  days.forEach(d=>{
+    (d.foods||[]).forEach(f=>{
+      const key = f.name.toLowerCase().trim();
+      if(!counts[key]) counts[key]={name:f.name,count:0,cal:f.cal,protein:f.protein,carbs:f.carbs,fat:f.fat,qty:f.qty};
+      counts[key].count++;
+    });
+  });
+  return Object.values(counts).sort((a,b)=>b.count-a.count).slice(0,8);
+}
+
+function getAppetiteByDayPostInj(days){
+  // For each logged day, find how many days since last injection
+  // Group calories by day-post-injection (0-7)
+  const groups = Array.from({length:8},()=>[]);
+  let lastInjDate = null;
+  const sorted = [...days].sort((a,b)=>a.date-b.date);
+  for(const d of sorted){
+    if(d.mounjaro) lastInjDate = d.date;
+    if(d.logged && d.cal>200 && lastInjDate){
+      const daysSince = Math.round((d.date - lastInjDate)/86400000);
+      if(daysSince>=0 && daysSince<=7) groups[daysSince].push(d.cal);
+    }
+  }
+  return groups.map(g=>g.length?Math.round(g.reduce((a,b)=>a+b,0)/g.length):null);
+}
+
+function getInjectionCompliance(days, injDay){
+  // Count weeks where injection was logged on the right day
+  let expected = 0, done = 0;
+  const sorted = [...days].filter(d=>d.date.getDay()===injDay);
+  expected = sorted.length;
+  done = sorted.filter(d=>d.mounjaro).length;
+  return expected>0?Math.round(done/expected*100):null;
+}
+
+function updateProjection(){
+  const s = gs();
+  const calInput = +document.getElementById('proj-cal-slider').value||s.cal;
+  document.getElementById('proj-cal-val').textContent = calInput+' kcal';
+
+  const days = getDaysData(60);
+  const tdeeData = calcTDEE(days);
+  if(!tdeeData){
+    document.getElementById('proj-date').textContent='Need more data';
+    document.getElementById('proj-sub').textContent='Log weight and food for 7+ days';
+    return;
+  }
+  const tdee = tdeeData.tdee;
+  const deficit = tdee - calInput;
+  const kgPerDay = deficit/7700;
+  const data = ld();
+  const weights = Object.values(data).filter(v=>v.weight).map(v=>v.weight.val);
+  const currentW = weights.length?weights[weights.length-1]:s.wt;
+  const targetW = s.tgt;
+  if(kgPerDay<=0){
+    document.getElementById('proj-date').textContent='Gaining weight';
+    document.getElementById('proj-sub').textContent='Increase deficit to lose weight';
+  } else {
+    const daysToGoal = Math.ceil((currentW-targetW)/kgPerDay);
+    if(daysToGoal<0){
+      document.getElementById('proj-date').textContent='Goal reached!';
+      document.getElementById('proj-sub').textContent='';
+    } else {
+      const goalDate = new Date(); goalDate.setDate(goalDate.getDate()+daysToGoal);
+      document.getElementById('proj-date').textContent=goalDate.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+      document.getElementById('proj-sub').textContent=`${daysToGoal} days · losing ${(kgPerDay*7).toFixed(2)}kg/week`;
+    }
+  }
+  document.getElementById('proj-target-wt').textContent = targetW+'kg';
+
+  // Build projection chart
+  const ctx = document.getElementById('proj-chart').getContext('2d');
+  if(projChart) projChart.destroy();
+  const projDays = 120;
+  const projLabels = [], projActual = [], projFuture = [];
+  const today = new Date(); today.setHours(0,0,0,0);
+  // Past actual weights
+  for(let i=30;i>=0;i--){
+    const d=new Date(today);d.setDate(d.getDate()-i);
+    const key=dk(d);const day=ld()[key]||{};
+    projLabels.push(d.toLocaleDateString('en-GB',{day:'numeric',month:'short'}));
+    projActual.push(day.weight?.val||null);
+    projFuture.push(null);
+  }
+  // Future projection
+  let w = currentW;
+  for(let i=1;i<=projDays;i++){
+    w = Math.max(w-kgPerDay, targetW);
+    const d=new Date(today);d.setDate(d.getDate()+i);
+    projLabels.push(d.toLocaleDateString('en-GB',{day:'numeric',month:'short'}));
+    projActual.push(null);
+    projFuture.push(+w.toFixed(2));
+  }
+  projChart = new Chart(ctx,{
+    type:'line',
+    data:{labels:projLabels,datasets:[
+      {label:'Actual',data:projActual,borderColor:'#38bdf8',borderWidth:2,pointRadius:2,fill:false,spanGaps:false,tension:.3},
+      {label:'Projected',data:projFuture,borderColor:'rgba(74,222,128,.7)',borderWidth:2,borderDash:[6,4],pointRadius:0,fill:false,spanGaps:false,tension:.4},
+      {label:'Target',data:projLabels.map(()=>targetW),borderColor:'rgba(251,191,36,.4)',borderWidth:1,borderDash:[3,3],pointRadius:0,fill:false}
+    ]},
+    options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}},scales:{
+      x:{grid:{display:false},ticks:{color:'#64748b',font:{size:10},maxTicksLimit:6}},
+      y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#64748b',font:{size:10},callback:v=>v+'kg'}}
+    }}
+  });
+}
+
+function rIntel(){
+  const s = gs();
+  const days = getDaysData(90);
+  const loggedDays = days.filter(d=>d.logged);
+
+  // Streak
+  const streak = calcStreak(days.slice(-30));
+  document.getElementById('intel-streak-num').textContent = streak;
+  const spill = document.getElementById('intel-streak-pill');
+  if(streak>=7) spill.innerHTML=`<span class="streak-pill">🔥 ${streak} day streak</span>`;
+  else if(streak>=3) spill.innerHTML=`<span class="streak-pill">⚡ Building streak</span>`;
+  else spill.innerHTML=`<span class="streak-pill" style="opacity:.5">Start your streak</span>`;
+
+  // Compliance
+  const comp = getInjectionCompliance(days, s.injDay);
+  document.getElementById('intel-compliance').textContent = comp!==null?comp+'%':'—%';
+
+  // BMI + body fat
+  const weights = Object.values(ld()).filter(v=>v.weight).map(v=>v.weight.val);
+  const currentW = weights.length?weights[weights.length-1]:null;
+  const bmi = calcBMI(currentW, s.height);
+  const bf = calcBodyFat(bmi, 35, s.sex);
+  const lbm = currentW&&bf?+(currentW*(1-bf/100)).toFixed(1):null;
+  document.getElementById('intel-bmi').textContent = bmi||'—';
+  document.getElementById('intel-bf').textContent = bf?bf+'%':'—%';
+  document.getElementById('intel-lbm').textContent = lbm?lbm+'kg':'—kg';
+  const bmiLabels=['Underweight','Healthy weight','Overweight','Obese'];
+  const bmiLabel = !bmi?'Enter height and weight in Settings':bmi<18.5?bmiLabels[0]:bmi<25?bmiLabels[1]:bmi<30?bmiLabels[2]:bmiLabels[3];
+  document.getElementById('intel-bmi-label').textContent = bmiLabel;
+
+  // TDEE
+  const tdeeData = calcTDEE(days);
+  if(tdeeData){
+    document.getElementById('intel-tdee').textContent = tdeeData.tdee+' kcal';
+    document.getElementById('intel-deficit').textContent = tdeeData.deficit>0?'-'+tdeeData.deficit+' kcal':'+'+Math.abs(tdeeData.deficit)+' kcal';
+    document.getElementById('intel-weekly-loss').textContent = tdeeData.weeklyLoss>0?tdeeData.weeklyLoss+'kg/wk':'Gaining';
+    document.getElementById('intel-tdee-sub').textContent = `Based on ${loggedDays.length} logged days. Formula estimate would be ~${Math.round(s.wt*24)} kcal — your real number is ${tdeeData.tdee>s.wt*24?'higher':'lower'} than average.`;
+  } else {
+    document.getElementById('intel-tdee').textContent = '—';
+    document.getElementById('intel-tdee-sub').textContent = 'Needs at least 2 weight readings and 7 logged days to calculate.';
+  }
+
+  // Projection
+  const slider = document.getElementById('proj-cal-slider');
+  slider.value = s.cal;
+  updateProjection();
+
+  // Correlations
+  const corrEl = document.getElementById('intel-correlations');
+  const corrPairs = [];
+  // protein vs next-day weight change
+  const proteinVsLoss = [];
+  for(let i=1;i<days.length;i++){
+    if(days[i-1].logged&&days[i-1].protein>0&&days[i].weight&&days[i-1].weight){
+      proteinVsLoss.push([days[i-1].protein, days[i-1].weight-days[i].weight]);
+    }
+  }
+  if(proteinVsLoss.length>=5){
+    const r = correlate(proteinVsLoss.map(x=>x[0]),proteinVsLoss.map(x=>x[1]));
+    if(r!==null) corrPairs.push({label:'High protein → next day weight drop',r,positive:true});
+  }
+  // calories vs next-day weight
+  const calVsLoss = [];
+  for(let i=1;i<days.length;i++){
+    if(days[i-1].logged&&days[i-1].cal>0&&days[i].weight&&days[i-1].weight){
+      calVsLoss.push([days[i-1].cal, days[i-1].weight-days[i].weight]);
+    }
+  }
+  if(calVsLoss.length>=5){
+    const r = correlate(calVsLoss.map(x=>x[0]),calVsLoss.map(x=>x[1]));
+    if(r!==null) corrPairs.push({label:'Lower calories → next day weight drop',r:r*-1,positive:true});
+  }
+  // sleep vs calories
+  const sleepVsCal = days.filter(d=>d.sleep&&d.logged&&d.cal>0);
+  if(sleepVsCal.length>=5){
+    const r = correlate(sleepVsCal.map(d=>d.sleep),sleepVsCal.map(d=>d.cal));
+    if(r!==null) corrPairs.push({label:'More sleep → lower calorie intake',r:r*-1,positive:true});
+  }
+  // recovery vs calories
+  const recVsCal = days.filter(d=>d.recovery&&d.logged&&d.cal>0);
+  if(recVsCal.length>=5){
+    const r = correlate(recVsCal.map(d=>d.recovery),recVsCal.map(d=>d.cal));
+    if(r!==null) corrPairs.push({label:'Higher recovery score → controlled eating',r:r*-1,positive:true});
+  }
+  // mounjaro day vs calories
+  const mjDaysCal = days.filter(d=>d.mounjaro&&d.logged&&d.cal>0).map(d=>d.cal);
+  const nonMjDaysCal = days.filter(d=>!d.mounjaro&&d.logged&&d.cal>0).map(d=>d.cal);
+  if(mjDaysCal.length>=2&&nonMjDaysCal.length>=5){
+    const mjAvg = mjDaysCal.reduce((a,b)=>a+b,0)/mjDaysCal.length;
+    const nonMjAvg = nonMjDaysCal.reduce((a,b)=>a+b,0)/nonMjDaysCal.length;
+    const diff = Math.round(nonMjAvg-mjAvg);
+    corrPairs.push({label:`Mounjaro days: ${diff>0?diff+' fewer':Math.abs(diff)+' more'} kcal vs non-injection days`,r:diff>0?Math.min(diff/500,.99):Math.min(Math.abs(diff)/500,.99)*-1,positive:diff>0,raw:true,rawLabel:diff>0?`-${diff} kcal`:'+'+Math.abs(diff)+' kcal'});
+  }
+
+  if(!corrPairs.length){
+    corrEl.innerHTML='<div style="font-size:13px;color:var(--text2);padding:8px 0">Keep logging — correlations appear after 7+ days of data.</div>';
+  } else {
+    corrEl.innerHTML = corrPairs.map(p=>{
+      const pct = Math.min(Math.abs(p.r)*100,100);
+      const col = p.positive?(p.r>0?'var(--green)':'var(--red)'):(p.r<0?'var(--green)':'var(--red)');
+      const strength = Math.abs(p.r)>.6?'Strong':Math.abs(p.r)>.3?'Moderate':'Weak';
+      return `<div class="corr-row">
+        <div class="corr-label">${p.label}</div>
+        <div class="corr-bar-wrap"><div class="corr-bar" style="width:${pct}%;background:${col}"></div></div>
+        <div class="corr-val" style="color:${col}">${p.raw?p.rawLabel:strength}</div>
+      </div>`;
+    }).join('');
+  }
+
+  // Appetite window
+  const appData = getAppetiteByDayPostInj(days);
+  const hasAppData = appData.some(v=>v!==null);
+  if(hasAppData){
+    const ctx2 = document.getElementById('appetite-chart').getContext('2d');
+    if(appetiteChart) appetiteChart.destroy();
+    const appLabels = ['Inj day','Day 1','Day 2','Day 3','Day 4','Day 5','Day 6','Day 7'];
+    const peakDay = appData.reduce((best,v,i)=>v!==null&&(best===-1||v<appData[best])?i:best,-1);
+    appetiteChart = new Chart(ctx2,{
+      type:'bar',
+      data:{labels:appLabels,datasets:[{
+        data:appData,
+        backgroundColor:appData.map((_,i)=>i===peakDay?'rgba(74,222,128,.7)':'rgba(56,189,248,.4)'),
+        borderRadius:4
+      }]},
+      options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y?' '+ctx.parsed.y+' kcal avg':' No data'}}},
+      scales:{x:{grid:{display:false},ticks:{color:'#64748b',font:{size:11}}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#64748b',font:{size:11},callback:v=>v+'kcal'}}}}
+    });
+    const minCal = appData.filter(v=>v).reduce((a,b)=>Math.min(a,b),9999);
+    const maxCal = appData.filter(v=>v).reduce((a,b)=>Math.max(a,b),0);
+    const insight = peakDay>=0?`Your lowest appetite day is Day ${peakDay} post-injection (avg ${minCal} kcal). Your highest is ${maxCal} kcal. ${maxCal-minCal>200?'You eat '+(maxCal-minCal)+' kcal more on your lowest-medication days — this is the compensation effect to watch.':'Your intake is fairly consistent across the week.'}`:''
+    document.getElementById('appetite-insight').textContent = insight;
+  }
+
+  // Frequent foods
+  const freqFoods = getFrequentFoods(days);
+  const recallEl = document.getElementById('intel-recall');
+  if(!freqFoods.length){
+    recallEl.innerHTML='<div style="font-size:13px;color:var(--text2)">Log some meals to see your frequent foods here.</div>';
+  } else {
+    recallEl.innerHTML = freqFoods.map(f=>`
+      <div class="recall-item" onclick="quickAddFood('${f.name.replace(/'/g,"\'")}',${f.cal},${f.protein},${f.carbs},${f.fat},${f.qty})">
+        <div style="flex:1">
+          <div style="font-size:14px;font-weight:500">${f.name}</div>
+          <div style="font-size:12px;color:var(--text2)">${Math.round(f.cal)} kcal · P:${Math.round(f.protein)}g · logged ${f.count}×</div>
+        </div>
+        <div style="font-size:12px;color:var(--accent);font-weight:600">+ Add</div>
+      </div>`).join('');
+  }
+}
+
+function quickAddFood(name,cal,protein,carbs,fat,qty){
+  // Quick-add from recall to today's last meal
+  const key = dk(curDate); const data = ld();
+  if(!data[key]) data[key]={foods:[],mounjaro:null,activities:[]};
+  data[key].foods.push({meal:'snacks',name,qty,cal,protein,carbs,fat});
+  sd(data); render();
+  // Flash feedback
+  const el = event.currentTarget;
+  el.style.background='rgba(74,222,128,.15)';
+  setTimeout(()=>el.style.background='',600);
+}
+
+// ═══════════════════════════════════════════
+// WEEKLY REPORT
+// ═══════════════════════════════════════════
+function rReport(){
+  const days = getDaysData(7);
+  const s = gs();
+  const data = ld();
+  const weights = Object.values(data).filter(v=>v.weight).sort((a,b)=>a.weight?.val-b.weight?.val);
+
+  const loggedDays = days.filter(d=>d.logged);
+  const avgCal = loggedDays.length?Math.round(loggedDays.reduce((a,d)=>a+d.cal,0)/loggedDays.length):0;
+  const avgProt = loggedDays.length?Math.round(loggedDays.reduce((a,d)=>a+d.protein,0)/loggedDays.length):0;
+  const totalBurned = days.reduce((a,d)=>a+d.burned,0);
+  const injDays = days.filter(d=>d.mounjaro).length;
+  const wDays = days.filter(d=>d.recovery);
+  const avgRecovery = wDays.length?Math.round(wDays.reduce((a,d)=>a+d.recovery,0)/wDays.length):null;
+  const allWeights = Object.entries(data).filter(([,v])=>v.weight).sort(([a],[b])=>a.localeCompare(b));
+  const weekWeights = allWeights.filter(([k])=>days.some(d=>dk(d.date)===k));
+  const weekWeightChange = weekWeights.length>=2?+(weekWeights[weekWeights.length-1][1].weight.val-weekWeights[0][1].weight.val).toFixed(1):null;
+  const totalLost = allWeights.length>=2?+(allWeights[0][1].weight.val-allWeights[allWeights.length-1][1].weight.val).toFixed(1):null;
+
+  const weekStart = days[0].date.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+  const weekEnd = days[6].date.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+  document.getElementById('report-week-label').textContent = `${weekStart} — ${weekEnd}`;
+
+  const gradeCalories = avgCal>0&&avgCal<=s.cal*1.05?'A':avgCal<=s.cal*1.15?'B':avgCal<=s.cal*1.25?'C':'D';
+  const gradeProtein = avgProt>=s.prot?'A':avgProt>=s.prot*.85?'B':avgProt>=s.prot*.7?'C':'D';
+  const gradeLogging = loggedDays.length>=6?'A':loggedDays.length>=4?'B':loggedDays.length>=2?'C':'D';
+  const gradeColor = g=>g==='A'?'var(--green)':g==='B'?'var(--accent)':g==='C'?'var(--amber)':'var(--red)';
+
+  document.getElementById('report-content').innerHTML = `
+    <div class="report-card">
+      <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:12px">WEEK AT A GLANCE</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px">
+        <div class="report-metric"><div class="val" style="color:var(--accent)">${avgCal||'—'}</div><div class="lbl">avg kcal/day</div></div>
+        <div class="report-metric"><div class="val" style="color:var(--green)">${avgProt||'—'}g</div><div class="lbl">avg protein</div></div>
+        <div class="report-metric"><div class="val" style="color:var(--red)">${totalBurned||'—'}</div><div class="lbl">kcal burned</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+        <div class="report-metric"><div class="val" style="color:${weekWeightChange!==null?weekWeightChange<=0?'var(--green)':'var(--red)':'var(--text2)'}">${weekWeightChange!==null?(weekWeightChange<=0?'':'+')+(weekWeightChange)+'kg':'—'}</div><div class="lbl">this week</div></div>
+        <div class="report-metric"><div class="val" style="color:var(--amber)">${totalLost!==null&&totalLost>0?'-'+totalLost+'kg':'—'}</div><div class="lbl">total lost</div></div>
+        <div class="report-metric"><div class="val" style="color:var(--purple)">${injDays}</div><div class="lbl">injection${injDays!==1?'s':''}</div></div>
+      </div>
+    </div>
+    <div class="report-card">
+      <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:12px">PERFORMANCE GRADES</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center">
+        <div><div style="font-size:40px;font-weight:800;color:${gradeColor(gradeCalories)}">${gradeCalories}</div><div style="font-size:12px;color:var(--text2)">Calorie target</div></div>
+        <div><div style="font-size:40px;font-weight:800;color:${gradeColor(gradeProtein)}">${gradeProtein}</div><div style="font-size:12px;color:var(--text2)">Protein target</div></div>
+        <div><div style="font-size:40px;font-weight:800;color:${gradeColor(gradeLogging)}">${gradeLogging}</div><div style="font-size:12px;color:var(--text2)">Logging (${loggedDays.length}/7 days)</div></div>
+      </div>
+    </div>
+    ${avgRecovery?`<div class="report-card"><div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:8px">WHOOP THIS WEEK</div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center"><div><div style="font-size:22px;font-weight:700;color:${avgRecovery>=67?'var(--green)':avgRecovery>=34?'var(--amber)':'var(--red)'}">${avgRecovery}%</div><div style="font-size:12px;color:var(--text2)">avg recovery</div></div><div><div style="font-size:22px;font-weight:700;color:var(--accent)">${Math.round(wDays.reduce((a,d)=>a+(d.hrv||0),0)/wDays.length)||'—'}</div><div style="font-size:12px;color:var(--text2)">avg HRV</div></div><div><div style="font-size:22px;font-weight:700;color:var(--purple)">${Math.round(wDays.reduce((a,d)=>a+(d.sleep||0),0)/wDays.length/60*10)/10||'—'}h</div><div style="font-size:12px;color:var(--text2)">avg sleep</div></div></div></div>`:''}
+    <div class="report-card">
+      <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:10px">DAILY BREAKDOWN</div>
+      ${days.map(d=>`<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:.5px solid var(--border)">
+        <div style="font-size:12px;color:var(--text2);width:32px">${d.date.toLocaleDateString('en-GB',{weekday:'short'})}</div>
+        <div style="font-size:13px;flex:1">${d.logged?Math.round(d.cal)+' kcal':'Not logged'}</div>
+        ${d.mounjaro?`<span style="font-size:10px;background:rgba(167,139,250,.2);color:var(--purple);padding:2px 6px;border-radius:8px">${d.mounjaro}</span>`:''}
+        ${d.weight?`<span style="font-size:12px;font-weight:600;color:var(--text)">${d.weight}kg</span>`:''}
+        <div style="width:6px;height:6px;border-radius:50%;background:${d.logged?(d.cal<=s.cal?'var(--green)':'var(--amber)'):'var(--surface2)'}"></div>
+      </div>`).join('')}
+    </div>`;
+}
+
+function shareReport(){
+  // Generate a text summary for sharing
+  const el = document.getElementById('report-content');
+  const text = el.innerText.replace(/\n\n+/g,'\n').trim();
+  if(navigator.share){
+    navigator.share({title:'My weekly health report',text});
+  } else {
+    navigator.clipboard?.writeText(text).then(()=>alert('Report copied to clipboard'));
+  }
 }
 
 render();
