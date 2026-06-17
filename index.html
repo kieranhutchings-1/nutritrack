@@ -980,7 +980,6 @@ function gs(){
   try{return Object.assign(df,JSON.parse(localStorage.getItem('nt3s')||'{}'))}catch{return df}
 }
 function saveSettings(){
-  const ids=['s-cal','s-prot','s-tgt','s-wt','s-height'];
   const s=gs();
   s.cal=+document.getElementById('s-cal').value||1800;
   s.prot=+document.getElementById('s-prot').value||140;
@@ -988,10 +987,10 @@ function saveSettings(){
   s.wt=+document.getElementById('s-wt').value||90;
   s.height=+document.getElementById('s-height').value||178;
   s.sex=document.getElementById('s-sex').value||'m';
-  s.dose=document.getElementById('s-dose').value||'5mg';
-  s.injDay=+document.getElementById('s-injday').value;
-  s.eb=document.getElementById('s-eb').checked;
-  localStorage.setItem('nt3s',JSON.stringify(s));render();
+  const eb=document.getElementById('s-eb');
+  if(eb)s.eb=eb.checked;
+  localStorage.setItem('nt3s',JSON.stringify(s));
+  render();
 }
 function lSettings(){
   const s=gs();
@@ -999,11 +998,9 @@ function lSettings(){
   document.getElementById('s-prot').value=s.prot;
   document.getElementById('s-tgt').value=s.tgt;
   document.getElementById('s-wt').value=s.wt;
-  document.getElementById('s-height').value=s.height||178;
-  document.getElementById('s-sex').value=s.sex||'m';
-  document.getElementById('s-dose').value=s.dose;
-  document.getElementById('s-injday').value=s.injDay;
-  document.getElementById('s-eb').checked=!!s.eb;
+  const ht=document.getElementById('s-height');if(ht)ht.value=s.height||178;
+  const sx=document.getElementById('s-sex');if(sx)sx.value=s.sex||'m';
+  const eb=document.getElementById('s-eb');if(eb)eb.checked=!!s.eb;
 }
 
 // NAV
